@@ -1,1 +1,72 @@
 # PUS
+Задание 1 root@9ec7bcc0e3b7:~# cd /home
+root@9ec7bcc0e3b7:/home# mkdir poly
+root@9ec7bcc0e3b7:/home# ls -F --color 
+info_login.txt  poly/  qu1/  qu2/  qu3/  qu4/  quart1  quart1.txt  temp1/  temp2/  user1/
+Задание 2 root@9ec7bcc0e3b7:/home# rmdir poly
+root@9ec7bcc0e3b7:/home# ls -F --color
+info_login.txt  qu1/  qu2/  qu3/  qu4/  quart1  quart1.txt  temp1/  temp2/  user1/
+Задание 3 
+root@9ec7bcc0e3b7:/home# uname -a
+Linux 9ec7bcc0e3b7 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64 x86_64 x86_64 GNU/Linux
+root@9ec7bcc0e3b7:/home# 
+Задание 4 root@9ec7bcc0e3b7:~# uname -s
+Linux
+Задание 5 root@9ec7bcc0e3b7:~# uname -r
+4.19.0-16-amd64
+Задание 6 root@9ec7bcc0e3b7:/date
+Fri Oct 15 13:52:22 BST 2021
+Задание 7 root@9ec7bcc0e3b7:/home# cal
+    October 2021      
+Su Mo Tu We Th Fr Sa  
+                1  2  
+ 3  4  5  6  7  8  9  
+10 11 12 13 14 15 16  
+17 18 19 20 21 22 23  
+24 25 26 27 28 29 30  
+31                    
+Задание 8 &&
+Задание 9 clear
+Задание 10 pwd
+Задание 11 root@9ec7bcc0e3b7:/home# cd user
+Задание 12 root@9ec7bcc0e3b7:/home# ls -R
+.:
+info_login.txt  qu1  qu2  qu3  qu4  quart1  quart1.txt  temp1  temp2  user1
+
+./qu1:
+feb  feb.txt  jan  jan.txt  mar  mar.txt
+
+./qu2:
+apr  apr.txt  jun  jun.txt  may  may.txt
+
+./qu3:
+aug  aug.txt  jul  jul.txt  sep  sep.txt
+
+./qu4:
+dec  dec.txt  nov  nov.txt  oct.txt  okt
+
+./temp1:
+
+./temp2:
+
+./user1:
+root@9ec7bcc0e3b7:/home# ls
+info_login.txt  qu1  qu2  qu3  qu4  quart1  quart1.txt  temp1  temp2  user1
+Задание 13 root@9ec7bcc0e3b7:/home ls -a
+.  ..  info_login.txt  qu1  qu2  qu3  qu4  quart1  quart1.txt  temp1  temp2  user1
+Задание 14 root@9ec7bcc0e3b7:/home# ls -F --color ~
+Sidorkov/  classic/  dir1/  dir3/  f1.txt     file2.txt  home/  ls-file1.txt  my_bin/  qu1/     test/      text2.txt    ya.ru
+celery     desktop/  dir2/  f.txt  file1.txt  file3.txt  ls     ls-text2.txt  ping     record/  text1.txt  vegetables/
+Задание 15 root@9ec7bcc0e3b7:/home# ls -F
+info_login.txt  qu1/  qu2/  qu3/  qu4/  quart1  quart1.txt  temp1/  temp2/  user1/
+Задание 16 root@9ec7bcc0e3b7:~# cd ~user
+Задание 17 root@9ec7bcc0e3b7:~# cd/etc/X11
+Задание 18 root@9ec7bcc0e3b7:~#pwd/root
+Задание 19 root@9ec7bcc0e3b7:~# ~cd /
+Задание 20 root@9ec7bcc0e3b7:~# cd group
+Задание 21 less passwd&&group
+Задание 22 root@9ec7bcc0e3b7:~# head -n 5 passwd
+Задание 23
+Задание 24
+Задание 25
+Задание 26
