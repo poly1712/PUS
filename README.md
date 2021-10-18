@@ -72,9 +72,9 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 Задание 24 root@d4e8f3ca43df:/etc# wc passwd
   33   38 1561 passwd
-Задание 25- root@d4e8f3ca43df:/# cd student
+Задание 25 root@d4e8f3ca43df:/# cd student
 root@d4e8f3ca43df:/student#
-Задание 26 - root@d4e8f3ca43df:/student# touch file1
+Задание 26 root@d4e8f3ca43df:/student# touch file1
 root@d4e8f3ca43df:/student# touch file2
 root@d4e8f3ca43df:/student# touch file3
 root@d4e8f3ca43df:/student# ls
