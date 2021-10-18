@@ -66,7 +66,17 @@ info_login.txt  qu1/  qu2/  qu3/  qu4/  quart1  quart1.txt  temp1/  temp2/  user
 Задание 20 root@9ec7bcc0e3b7:~# cd group
 Задание 21 less passwd&&group
 Задание 22 root@9ec7bcc0e3b7:~# head -n 5 passwd
-Задание 23
-Задание 24
-Задание 25
-Задание 26
+Задание 23 root@d4e8f3ca43df:/etc# head -n 3 passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+Задание 24 root@d4e8f3ca43df:/etc# wc passwd
+  33   38 1561 passwd
+Задание 25- root@d4e8f3ca43df:/# cd student
+root@d4e8f3ca43df:/student#
+Задание 26 - root@d4e8f3ca43df:/student# touch file1
+root@d4e8f3ca43df:/student# touch file2
+root@d4e8f3ca43df:/student# touch file3
+root@d4e8f3ca43df:/student# ls
+file1  file2  file3
+
