@@ -25,3 +25,13 @@
 Я, Олеся , Лена и Кристина любим учить языки программирования
 9.>>> orange_stocks = 1051;print ("Запасы апельсин на складе:", orange_stocks) 
 Запасы апельсин на складе: 1051
+
+apt install python3.8
+cd/home
+touch hel.py
+vim hel.py
+IN VIM: press i to go to insert mode
+then add code :print ("23 июня 1941 года"); print("США,СССР,Германия,Франция,Китай"); print(); print("Страна победитель - СССР")
+then press esc button, type :wq and press enter button to save script.
+chmod 777 hel.py
+python 3.8 hel.py
