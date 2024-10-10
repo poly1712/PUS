@@ -1,0 +1,132 @@
+from sklearn import datasets
+iris = datasets.load_iris()
+X = iris.data[:,[2,3]]
+y = iris.target
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['figure.figsize'] = (14,9)
+np.unique(y)
+from sklearn.model_selection import train_test_split
+s = train_test_split( X, y, test_size=0.3, stratify=y, random_
+state=1 )
+X_train, X_test, y_train, y_test = s
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler().fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
+plt.scatter(X_train_std[y_train==0,0], X_train_std[y_train==0,
+1], color='red', marker='o')
+plt.scatter(X_train_std[y_train==1,0], X_train_std[y_train==1,
+1], color='green', marker='^')
+plt.scatter(X_train_std[y_train==2,0], X_train_std[y_train==2,
+1], color='blue', marker='x')
+<matplotlib.collections.PathCollection at 0x7f7fa1f2c730>
+from sklearn.linear_model import Perceptron
+ppn = Perceptron( max_iter=40, eta0=0.1, random_state=1).fit(
+X_train_std, y_train )
+y_train_pred = ppn.predict(X_train_std)
+(y_train != y_train_pred).sum()
+6
+y_test_pred = ppn.predict(X_test_std)
+(y_test != y_test_pred).sum()
+1
+from sklearn.metrics import accuracy_score
+accuracy_score(y_train, y_train_pred)
+0.9428571428571428
+accuracy_score(y_test, y_test_pred)
+0.9777777777777777
+ppn.score( X_test_std, y_test )
+0.9777777777777777
+from regions1 import plot_decision_regions
+plot_decision_regions( X_test_std, y_test, classifier=ppn)
+plot_decision_regions( X_train_std, y_train, classifier=ppn)
+
+Листинг П. 2.
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['figure.figsize'] = (14,9)
+from sklearn import datasets
+iris = datasets.load_iris()
+X = iris.data[:,[0,1]]
+y = iris.target
+fig=plt.figure()
+fig, axes = plt.subplots(nrows=4, ncols=4)
+for i, ax in enumerate(axes[:,0]):
+ for j, ax in enumerate(axes[i,:]):
+ X = iris.data[:,[i,j]]
+ x=X[:,0]
+ y=X[:,1]
+ ax.scatter(x, y)
+ ax.set_xlabel('x')
+ ax.set_ylabel('y')
+ ax.set_title('title')
+<Figure size 1008x648 with 0 Axes>
+def sigmoid(z):
+ return 1.0 / ( 1.0 + np.exp(-z) )
+z = np.arange(-7,7,0.1)
+phi = sigmoid(z)
+plt.plot(z, phi)
+plt.axvline(0.0, color='green')
+plt.ylim(-0.1, 1.1)
+plt.yticks([0.0, 0.5, 1.0])
+([<matplotlib.axis.YTick at 0x1c3806bd848>,
+ <matplotlib.axis.YTick at 0x1c3806bdf88>,
+ <matplotlib.axis.YTick at 0x1c3808995c8>],
+<a list of 3 Text major ticklabel objects>)
+from sklearn.model_selection import train_test_split
+s = train_test_split( X, y, test_size=0.3, stratify=y, random_
+state=1 )
+X_train, X_test, y_train, y_test = s
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler().fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression( random_state=1, C=1000.0 )
+lr.fit(X_train_std, y_train)
+LogisticRegression(C=1000.0, random_state=1)
+from mlxtend.plotting import plot_decision_regions
+plot_decision_regions(X_train_std, y_train, clf=lr)
+C:\Users\sokha\.conda\envs\pyml\lib\sitepackages\mlxtend\plotting\decision_regions.py:249:
+MatplotlibDeprecationWarning: Passing unsupported keyword
+arguments to axis() will raise a TypeError in 3.3.
+ ax.axis(xmin=xx.min(), xmax=xx.max(), y_min=yy.min(),
+y_max=yy.max())
+<matplotlib.axes._subplots.AxesSubplot at 0x1c380ac4788>
+
+Листинг П. 2.3. Оценка вероятностей принадлежности образцов к классам
+prob = lr.predict_proba(X_test_std)
+prob.sum(1)
+array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+
+Листинг П. 2.4. L2-регуляризация
+lr.coef_[1]
+array([-2.03192177, -0.03413691])
+weights = []
+params = []
+for c in np.arange(-5,5):
+ lr1 = LogisticRegression(C=10.0**c, random_state=1)
+ lr1.fit(X_train_std, y_train)
+ weights.append(lr1.coef_[1])
+ params.append(10.0**c)
+weights = np.array(weights)
+plt.plot(params, weights[:,0], label='длина лепестка')
+plt.plot(params, weights[:,1], label='ширина лепестка')
+plt.legend(loc='upper left')
+plt.xscale('log')
+
+Листинг П. 2.5. Метод опорных векторов
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+svm1 = SVC(kernel='linear', C=1.0, random_state=1).fit(X_train
+_std, y_train)
+svm2 = SVC(kernel='rbf', C=1.0, random_state=1).fit(X_train_st
+d, y_train)
+nei1 = KNeighborsClassifier(n_neighbors=3).fit(X_train_std, y_
+train)
+nei2 = KNeighborsClassifier(n_neighbors=7).fit(X_train_std, y_
+train)
